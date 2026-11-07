@@ -4,28 +4,30 @@
 
 | 形态 | 适用 | 一行上手 |
 | --- | --- | --- |
-| **CLI** | 任何人 / 任何能跑 shell 的 AI agent | `npx -y gj-submit@latest guide` |
-| **MCP server** | Claude Code / Cursor 等 MCP 客户端 | `claude mcp add gj-submit -- npx -y gj-submit mcp` |
+| **CLI** | 任何人 / 任何能跑 shell 的 AI agent | `npx -y github:the-beating-light-of-the-nail/gj-submit guide` |
+| **MCP server** | Claude Code / Cursor 等 MCP 客户端 | `claude mcp add gj-submit -- npx -y github:the-beating-light-of-the-nail/gj-submit mcp` |
 | **Agent Skill** | Claude Code / Cursor / Codex 等 75+ agent | `npx skills add the-beating-light-of-the-nail/gj-submit` |
+
+> npm 包 `gj-submit` 发布后短命令 `npx -y gj-submit@latest` 同样可用（更快）；当前 github: 直跑形式无需 npm 账号、始终最新。
 
 ## 三条投稿线
 
 ```bash
 # 1. 图片表情包 → 终审通过入馆藏（/meme/编号）
-npx -y gj-submit@latest image ./表情包.png --quote "图内台词照抄优先" --nickname "作者" --note "出处"
+npx -y github:the-beating-light-of-the-nail/gj-submit image ./表情包.png --quote "图内台词照抄优先" --nickname "作者" --note "出处"
 
 # 2. 人设卡 → 上人设卡页社区区（.md 支持 YAML frontmatter 自动预填）
-npx -y gj-submit@latest persona ./人设卡.md
-npx -y gj-submit@latest persona --title "傲娇深海研究员鲸鱼娘" --prompt "<人设全文>" --tags "傲娇 群聊"
+npx -y github:the-beating-light-of-the-nail/gj-submit persona ./人设卡.md
+npx -y github:the-beating-light-of-the-nail/gj-submit persona --title "傲娇深海研究员鲸鱼娘" --prompt "<人设全文>" --tags "傲娇 群聊"
 
 # 3. AI 聊天截图 → 上「鲸言鲸语」瀑布流（真人头像/昵称/群名必须先打码）
-npx -y gj-submit@latest chat ./截图.png --title "一句话概括笑点" --model deepseek --scene qqgroup
+npx -y github:the-beating-light-of-the-nail/gj-submit chat ./截图.png --title "一句话概括笑点" --model deepseek --scene qqgroup
 ```
 
 投稿成功返回编号（`sub_` / `psub_` / `csub_` 前缀）。收录由维护者人工终审，之后回查：
 
 ```bash
-npx -y gj-submit@latest status sub_0123456789ab
+npx -y github:the-beating-light-of-the-nail/gj-submit status sub_0123456789ab
 # → pending（待审）/ approved（已收录）/ rejected（未收录）
 ```
 
@@ -45,8 +47,9 @@ npx -y gj-submit@latest status sub_0123456789ab
 
 ## 下载与安装
 
-- npm：[gj-submit](https://www.npmjs.com/package/gj-submit)（`npx -y gj-submit@latest` 零安装直跑；`npm i -g gj-submit` 装全局）
-- 本仓库源码 zip：GitHub 页面绿色 **Code → Download ZIP**，解压后 `npm install && npm link`
+- **零安装直跑（推荐）**：`npx -y github:the-beating-light-of-the-nail/gj-submit guide`——npx 直接从 GitHub 拉最新版
+- npm（发布后）：[gj-submit](https://www.npmjs.com/package/gj-submit)（`npx -y gj-submit@latest`；`npm i -g gj-submit` 装全局）
+- 源码 zip：GitHub 页面绿色 **Code → Download ZIP**，解压后 `npm install && npm link`
 - 要求 Node ≥ 18（预览图生成依赖 [sharp](https://github.com/lovell/sharp)，安装时自动拉平台二进制）
 
 ## 约束速查（服务端口径）

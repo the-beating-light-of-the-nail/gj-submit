@@ -5,14 +5,14 @@ description: 向梗鲸（aigengtu.com，AI meme 表情包图库）投稿：图�
 
 # 梗鲸投稿（gj-submit）
 
-通过 `gj-submit` CLI 向梗鲸投稿。CLI 由 Node 驱动，零配置：`npx -y gj-submit@latest <命令>`。
+通过 `gj-submit` CLI 向梗鲸投稿。CLI 由 Node 驱动，零配置：`npx -y github:the-beating-light-of-the-nail/gj-submit <命令>`。
 
 ## 第一步：读规范
 
 投稿前先跑一次，拿到完整标注口径（收录范围、每条线字段怎么填、隐私红线、限频）：
 
 ```bash
-npx -y gj-submit@latest guide
+npx -y github:the-beating-light-of-the-nail/gj-submit guide
 ```
 
 要点速览（详见 guide 输出）：
@@ -27,7 +27,7 @@ npx -y gj-submit@latest guide
 ### 图片表情包（终审通过入馆藏）
 
 ```bash
-npx -y gj-submit@latest image ./表情包.png --quote "图内台词照抄优先" --nickname "作者" --note "出处链接"
+npx -y github:the-beating-light-of-the-nail/gj-submit image ./表情包.png --quote "图内台词照抄优先" --nickname "作者" --note "出处链接"
 ```
 
 `--quote` ≤60 字：图里印着文字就**照抄图内文字**（保留原样）；没文字才写一句梗点概括。不要写描述文。
@@ -36,10 +36,10 @@ npx -y gj-submit@latest image ./表情包.png --quote "图内台词照抄优先"
 
 ```bash
 # 直接传正文
-npx -y gj-submit@latest persona --title "傲娇深海研究员鲸鱼娘" --prompt "<人设提示词全文>" --tags "傲娇 群聊"
+npx -y github:the-beating-light-of-the-nail/gj-submit persona --title "傲娇深海研究员鲸鱼娘" --prompt "<人设提示词全文>" --tags "傲娇 群聊"
 
 # 或传 .md（YAML frontmatter 里的 title/description/tags/author 自动预填）
-npx -y gj-submit@latest persona ./人设卡.md
+npx -y github:the-beating-light-of-the-nail/gj-submit persona ./人设卡.md
 ```
 
 正文 500B–100KB；`--tags` 最多 4 个、每个 ≤12 字。
@@ -47,7 +47,7 @@ npx -y gj-submit@latest persona ./人设卡.md
 ### AI 聊天截图（终审通过上「鲸言鲸语」）
 
 ```bash
-npx -y gj-submit@latest chat ./截图.png --title "一句话概括笑点" --model deepseek --scene qqgroup
+npx -y github:the-beating-light-of-the-nail/gj-submit chat ./截图.png --title "一句话概括笑点" --model deepseek --scene qqgroup
 ```
 
 `--model` 七选一：deepseek/doubao/dsh/kimi/glm/qwen/other；`--scene` 五选一：qqgroup/qq/wechat/web/other。
@@ -57,7 +57,7 @@ npx -y gj-submit@latest chat ./截图.png --title "一句话概括笑点" --mode
 投稿成功返回编号（sub_ / psub_ / csub_ 前缀）。收录由维护者**人工终审**，隔一段时间回查：
 
 ```bash
-npx -y gj-submit@latest status sub_0123456789ab
+npx -y github:the-beating-light-of-the-nail/gj-submit status sub_0123456789ab
 ```
 
 状态：pending（待审）→ approved（已收录）/ rejected（未收录）。
